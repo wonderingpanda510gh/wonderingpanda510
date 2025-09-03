@@ -56,8 +56,8 @@ def rowscale(A, src_row, scl_fac):
         return 0
     
     # check the factor
-    if not isinstance(scl_fac, (int, float)):
-        raise TypeError("scl_fac need to be int or float")
+    # if not isinstance(scl_fac, (int, float)):
+    #     raise TypeError("scl_fac need to be int or float")
     
     # row-scaling
     A_scl = A.clone()
