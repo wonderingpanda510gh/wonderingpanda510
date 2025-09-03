@@ -122,18 +122,18 @@ def rref(A):
 
     # begins rows
     m = 0
+    choose_row = 0
 
 
     # main loop
-    # first for the column
+    # first for the col
     for i in range(col):
-        if m > col:
+        if m >= row:
             break
         
         # for each column, we need to find the maximum number
-        choose_row = 0
         max_vul = 0
-        for j in range(choose_row, row):
+        for j in range(m, row):
             cur_vul = abs(A_ref[j, i]) # current vule
             if cur_vul > max_vul:
                 max_vul = cur_vul
@@ -141,11 +141,12 @@ def rref(A):
 
         # if all number in this column is 0, then we skip this column
         if max_vul == 0:
+            m += 1
             continue
 
         # then we swap the row
-        if choose_row != m:
-            A_ref = rowswap(A_ref, choose_row, m)
+        if choose_row != i:
+            A_ref = rowswap(A_ref, choose_row, i)
 
         # let the first element become 1
         fir_vul = A_ref[m, i]
@@ -155,7 +156,7 @@ def rref(A):
 
 
         # make other element in this column to 0
-        for k in range(row):
+        for k in range(i, row):
             if k == m:
                 continue
             factor = A_ref[k, i]
@@ -166,4 +167,6 @@ def rref(A):
         # move to another column
         m += 1
 
+
     return A_ref
+
