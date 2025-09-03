@@ -1,4 +1,17 @@
-.ipynb_checkpoints/
-dist/
+# Python
+__pycache__/
+*.py[cod]
 *.egg-info/
-.vscode/
+*.egg
+.build/
+build/
+dist/
+.pytest_cache/
+.ipynb_checkpoints
+.cache/
+
+# virtual env / tools
+.venv/
+.uv/
+.env
+*.log
